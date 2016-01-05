@@ -19,19 +19,20 @@ let r = Router { r in
 
   r.get("/") { request in
     do {
-      try c.open()
       let result = try c.execute("SELECT * FROM posts LIMIT 100;")
-      /* // FIXME: How to create TemplateData?
-      return Response(
+      var posts = result.map { [
+          "id": String($0["id"]!.integer!),
+          "created": $0["created"]!.string,
+          "content": $0["content"]!.string,
+      ]}
+      return try Response(
         status: .OK,
         templatePath: "./Templates/index.mustache",
-        templateData: TemplateData(result))
-      */
+        templateData: ["posts": posts])
     } catch {
       print("\(error)")
       return Response(status: .InternalServerError)
     }
-    return Response(status: .OK)
   }
 
   r.get("/posts/:id") { request in

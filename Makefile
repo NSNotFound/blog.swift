@@ -23,7 +23,7 @@ watch:
 	  .
 
 stop:
-	@pkill blog 2>1
+	@pkill blog 2>&1 >/dev/null
 
 build:
 	@swift build --configuration release
