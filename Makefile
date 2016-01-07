@@ -6,7 +6,7 @@ PORT   = 3000
 bootstrap:
 	pip install watchdog
 	brew tap zewo/tap
-	brew install libvenice postresql
+	brew install libvenice postgresql
 	# add-apt-repository 'deb [trusted=yes] http://apt.zewo.io/deb ./'
 	# apt-get install libvenice
 
