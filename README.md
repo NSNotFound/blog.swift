@@ -4,7 +4,7 @@ My first tiny server-side Swift blog app.
 
 __[WIP] DO NOT USE__
 Please checkout the
-[TODO list](https://github.com/lexrus/blog.swift/issues/://github.com/lexrus/blog.swift/issues/3)
+[TODO list](https://github.com/lexrus/blog.swift/issues/3)
 
 
 
