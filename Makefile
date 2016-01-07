@@ -35,6 +35,10 @@ stop:
 	@pkill blog 2>&1 >/dev/null
 
 
+clean:
+	@rm -rf ./Packages
+
+
 build:
 	@swift build --configuration release
 
