@@ -1,18 +1,26 @@
-SHELL :=/bin/bash
-PORT   = 3000
+SHELL   :=/bin/bash
+PORT     = 3000
+UNAME_S := $(shell uname -s)
+
 
 .PHONY: bootstrap initdb build start watch
 
+
 bootstrap:
-	pip install watchdog
+ifeq "$(UNAME_S)" "Darwin"
 	brew tap zewo/tap
 	brew install libvenice postgresql
-	# add-apt-repository 'deb [trusted=yes] http://apt.zewo.io/deb ./'
-	# apt-get install libvenice
+else
+	sudo add-apt-repository 'deb [trusted=yes] http://apt.zewo.io/deb ./'
+	sudo apt-get install libvenice postgresql
+endif
+	pip install watchdog --upgrade
+
 
 initdb:
 	@createdb -Opostgres -Eutf8 blog
 	@psql -U postgres -d blog -f db.sql
+
 
 watch:
 	@echo "OK. Try edit your Swift code."
@@ -22,13 +30,16 @@ watch:
 	  --patterns="*.swift" \
 	  .
 
+
 stop:
 	@pkill blog 2>&1 >/dev/null
+
 
 build:
 	@swift build --configuration release
 
+
 start:
-	@.build/release/blog --port 3000 &
-	@echo "Server started: http://0.0.0.0:3000" 
+	@.build/release/blog --port $(PORT) &
+	@echo "Server started: http://0.0.0.0:$(PORT)" 
 
