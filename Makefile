@@ -1,5 +1,5 @@
 SHELL   :=/bin/bash
-PORT     = 3000
+PORT     = 4000
 UNAME_S := $(shell uname -s)
 
 
@@ -18,6 +18,7 @@ endif
 
 
 initdb:
+	@createuser -d -w postgres
 	@createdb -Opostgres -Eutf8 blog
 	@psql -U postgres -d blog -f db.sql
 

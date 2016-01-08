@@ -5,8 +5,11 @@ let postController = try! PostController()
 
 final class PostController {
 
+  private var dataCache = [Post]()
+
   init() throws {
     try c.open()
+    dataCache = all
   }
 
   deinit {
@@ -14,25 +17,36 @@ final class PostController {
   }
 
   func insert(content: String) -> Post {
-    let result = try! c.execute("INSERT INTO posts(created, content) VALUES(now(), '\(content)') RETURNING id")
+    let sql = "INSERT INTO posts(created, content) VALUES(now(), '\(content)') RETURNING id"
+    let result = try! c.execute(sql)
     let id = result[0]["id"]!.string!
     let created = result[0]["created"]!.string!
-    return Post(id: id, content: content, created: created)
+    let post = Post(id: id, content: content, created: created)
+    dataCache.append(post)
+    return post
   }
 
   var all: [Post] {
+    if dataCache.count != 0 {
+      return dataCache
+    }
     let result = try! c.execute("SELECT * FROM posts ORDER BY id")
-    return result.map { row in
+    let posts = result.map { row in
       return Post(
         id: row["id"]!.string!,
         content: row["content"]!.string!,
         created: row["created"]!.string!
       )
     }
+    dataCache = posts
+    return posts
   }
 
   subscript(id: String) -> Post? {
     get {
+      if dataCache.count != 0 {
+        return dataCache.filter({ $0.id == id }).first
+      }
       let result = try! c.execute("SELECT * FROM posts WHERE id = '\(id)'")
       if result.count > 0 {
         let row = result[0]
@@ -50,7 +64,12 @@ final class PostController {
       } else {
         try! c.execute("DELETE from posts WHERE id = '\(id)'")
       }
+      dataCache.removeAll()
+      if all.count > 0 {
+        // Do nothing just reload from db.
+      }
     }
   }
 
 }
+
