@@ -18,9 +18,9 @@ endif
 
 
 initdb:
-	@createuser -d -w postgres
-	@createdb -Opostgres -Eutf8 blog
-	@psql -U postgres -d blog -f db.sql
+	@sudo -u postgres psql postgres -tAc "SELECT 1 FROM pg_roles WHERE rolname='postgres'" | grep -q 1 || createuser -d -w postgres
+	@sudo -u postgres psql -lqt | cut -d \| -f 1 | grep -wq blog || createdb -Opostgres -Eutf8 blog
+	@sudo -u postgres psql -U postgres -d blog -f db.sql
 
 
 watch:
