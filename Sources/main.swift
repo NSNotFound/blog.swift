@@ -9,9 +9,8 @@ import Router
 import Epoch
 import CHTTPParser
 import CLibvenice
-import Commander
 import PostgreSQL
-import Sideburns
+import Commander
 
 var c: Connection
 
@@ -26,11 +25,6 @@ let main = command(
   let dbscheme = "postgresql://\(user):\(passwd)@\(db)/\(dbname)"
   let info = Connection.Info(connectionString: dbscheme)
   c = Connection(info)
-  do {
-    try c.open()
-  } catch {
-    print(error)
-  }
 
   let server = Server(port: port, responder: router)
   server.start()

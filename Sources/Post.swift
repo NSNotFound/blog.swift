@@ -6,6 +6,6 @@ struct Post {
 
 extension Post: CustomStringConvertible {
   var description: String {
-    return id + ": " created
+    return id + ": " + created
   }
 }
