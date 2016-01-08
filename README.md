@@ -1,6 +1,8 @@
 # blog.swift
 
 My first tiny server-side Swift blog app.
+Built with [Epoch](https://github.com/Zewo/Epoch)
+by [Zewo](https://github.com/Zewo).
 
 __[WIP] DO NOT USE__
 Please checkout the
