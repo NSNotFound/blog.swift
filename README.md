@@ -6,7 +6,7 @@ by [Zewo](https://github.com/Zewo).
 
 __[WIP] DO NOT USE__
 Please checkout the
-[TODO list](https://github.com/lexrus/blog.swift/issues/://github.com/lexrus/blog.swift/issues/3)
+[TODO list](https://github.com/lexrus/blog.swift/issues/3)
 
 
 
@@ -27,7 +27,7 @@ Please checkout the
 3. `make initdb`
 4. `make build`
 5. `make start`
-6. Open http://localhost:3000
+6. Open http://localhost:4000
 7. Press `Ctrl+c` to stop the server
 8. `make watch` and change any Swift code...
 
