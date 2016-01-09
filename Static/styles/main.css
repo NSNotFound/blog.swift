@@ -1,3 +1,110 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 body {
-  background: #eee;
+  font-family: 'PingHei', 'PingFang SC', 'Helvetica Neue', 'Helvetica', 'STHeitiSC-Light', 'Arial', sans-serif;
+}
+
+a {
+  color: #d30;
+}
+
+a:visited {
+  color: #d66;
+}
+
+.pure-img-responsive {
+  max-width: 100%;
+  height: auto;
+}
+
+#layout {
+  padding: 0;
+}
+
+.header {
+  text-align: center;
+  top: auto;
+  margin: 3em auto;
+}
+
+.sidebar {
+  background: #d30;
+  color: #fff;
+}
+
+.brand-title {
+  /* text-transform: uppercase; */
+}
+
+.brand-tagline {
+  font-weight: 300;
+}
+
+.nav-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-item {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+}
+
+.nav-item a {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  margin-top: 1em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 85%;
+}
+
+.nav-item a:hover,
+.nav-item a:focus {
+  border: 2px solid #fcc;
+  text-decoration: none;
+}
+
+.content {
+  padding: 2em 1em 0;
+}
+
+.post {
+  padding-bottom: 2em;
+}
+
+.post-title {
+  font-size: 2em;
+  color: #222;
+  margin-bottom: 0.2em;
+}
+
+.post-meta {
+  color: #999;
+  font-size: 0.9em;
+}
+
+@media (min-width: 48em) {
+  .content {
+    padding: 2em 3em 0;
+    margin-left: 25%;
+  }
+
+  .header {
+    margin: 80% 2em 0;
+    text-align: right;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+  }
 }
