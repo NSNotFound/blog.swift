@@ -6,7 +6,7 @@ by [Zewo](https://github.com/Zewo).
 
 __[WIP] DO NOT USE__
 Please checkout the
-[TODO list](https://github.com/lexrus/blog.swift/issues/3)
+[TODO list](https://github.com/NSNotFound/blog.swift/issues/3)
 
 
 
