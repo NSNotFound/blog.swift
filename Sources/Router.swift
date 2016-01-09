@@ -1,7 +1,6 @@
 import HTTP
 import Router
 import Middleware
-import Sideburns
 
 let router = Router { r in
 
