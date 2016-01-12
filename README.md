@@ -12,16 +12,15 @@ Please checkout the
 
 ## Requirements
 
-1. [PostgreSQL](https://github.com/NSNotFound/blog.swift/blob/master/Postgres%20Installation.md)
+- [PostgreSQL](https://github.com/NSNotFound/blog.swift/blob/master/Postgres%20Installation.md)
+- [Swift 2.2](https://swift.org/download/#apple-platforms)
+- [pip](https://pip.pypa.io/en/stable/installing/#install-pip)
+
 ### OS X 10.11 (El Capitan)
+- [Homebrew](http://brew.sh)
 
 ### Ubuntu 14.04
-
-
-2. Ubuntu 14/15(not tested) or Mac OS X 10.11
-3. [Swift 2.2](https://swift.org/download/#apple-platforms)
-4. [Homebrew](http://brew.sh) for OS X
-5. [pip](https://pip.pypa.io/en/stable/installing/#install-pip)
+- [apt-get](https://help.ubuntu.com/community/AptGet/Howto)
 
 
 ## Usage
