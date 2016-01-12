@@ -13,6 +13,11 @@ Please checkout the
 ## Requirements
 
 1. [PostgreSQL](https://github.com/NSNotFound/blog.swift/blob/master/Postgres%20Installation.md)
+### OS X 10.11 (El Capitan)
+
+### Ubuntu 14.04
+
+
 2. Ubuntu 14/15(not tested) or Mac OS X 10.11
 3. [Swift 2.2](https://swift.org/download/#apple-platforms)
 4. [Homebrew](http://brew.sh) for OS X
