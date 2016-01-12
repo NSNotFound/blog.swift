@@ -31,6 +31,7 @@ $(function() {
     } else if (json['id'] != undefined) {
       posts = [json];
     }
+    $('#posts').empty();
     for (var i=0; i<posts.length; i++) {
       var post = posts[i];
       var postTemplate = $('#postTemplate').clone();
