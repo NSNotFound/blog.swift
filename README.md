@@ -16,10 +16,10 @@ Please checkout the
 - [Swift 2.2](https://swift.org/download/#apple-platforms)
 - [pip](https://pip.pypa.io/en/stable/installing/#install-pip)
 
-### OS X 10.11 (El Capitan)
+##### OS X 10.11 (El Capitan)
 - [Homebrew](http://brew.sh)
 
-### Ubuntu 14.04
+##### Ubuntu 14.04
 - [apt-get](https://help.ubuntu.com/community/AptGet/Howto)
 
 
