@@ -52,7 +52,6 @@ a:visited {
 
 .nav-item {
   display: inline-block;
-  *display: inline;
   zoom: 1;
 }
 
