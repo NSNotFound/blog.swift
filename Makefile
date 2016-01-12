@@ -17,7 +17,7 @@ else
 	sudo git clone https://github.com/Zewo/http_parser.git && cd http_parser && sudo make && sudo make package && sudo dpkg -i http_parser.deb && cd .. && sudo rm -rf ./http_parser
 
 endif
-	pip install watchdog --upgrade
+	sudo pip install watchdog --upgrade
 
 
 initdb:
