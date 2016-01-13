@@ -17,8 +17,9 @@ final class PostController {
   }
 
   func insert(content: String) -> Post {
-    let sql = "INSERT INTO posts(created, content) VALUES(now(), '\(content)') RETURNING id"
-    let result = try! c.execute(sql)
+    // TODO: authentication
+    let sql = "INSERT INTO posts(created, content) VALUES(now(), '$1') RETURNING id"
+    let result = try! c.execute(sql, parameters: [content])
     let id = result[0]["id"]!.string!
     let created = result[0]["created"]!.string!
     let post = Post(id: id, content: content, created: created)
@@ -27,10 +28,11 @@ final class PostController {
   }
 
   var all: [Post] {
+    // TODO: pagenation
     if dataCache.count != 0 {
       return dataCache
     }
-    let result = try! c.execute("SELECT * FROM posts ORDER BY id")
+    let result = try! c.execute("SELECT * FROM posts ORDER BY id DESC")
     let posts = result.map { row in
       return Post(
         id: row["id"]!.string!,
@@ -47,7 +49,7 @@ final class PostController {
       if dataCache.count != 0 {
         return dataCache.filter({ $0.id == id }).first
       }
-      let result = try! c.execute("SELECT * FROM posts WHERE id = '\(id)'")
+      let result = try! c.execute("SELECT * FROM posts WHERE id = '$1'", parameters: [id])
       if result.count > 0 {
         let row = result[0]
         return Post(
@@ -59,10 +61,14 @@ final class PostController {
       return nil
     }
     set {
+      // TODO: authentication
       if let post = newValue {
-        try! c.execute("UPDATE posts SET content = '\(post.content)' WHERE id = '\(id)'")
+        try! c.execute(
+          "UPDATE posts SET content = '$1' WHERE id = '$2'",
+          parameters: [post.content, id]
+          )
       } else {
-        try! c.execute("DELETE from posts WHERE id = '\(id)'")
+        try! c.execute("DELETE from posts WHERE id = '$1'", parameters: [id])
       }
       dataCache.removeAll()
       if all.count > 0 {
