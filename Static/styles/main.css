@@ -40,6 +40,11 @@ a:visited {
   /* text-transform: uppercase; */
 }
 
+.brand-title a, .brand-title a:visited, .brand-title a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
 .brand-tagline {
   font-weight: 300;
 }

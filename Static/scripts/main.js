@@ -6,10 +6,14 @@ $(function() {
     return false;
   });
 
+  $(window).on('popstate', function(e) {
+    load(location.href);
+  });
+
   function load(href) {
     NProgress.start();
     var path = href.split('#');
-    if (path.count == 2) {
+    if (path.length == 2) {
       path = path[1];
     } else {
       path = 'posts';
@@ -43,8 +47,13 @@ $(function() {
 
       var content = post['content'];
       var markdown = new showdown.Converter().makeHtml(content);
+      var title = /.+[\r\n].*/.test(markdown) ? markdown.split(/[\r\n]/)[0].replace(/^#\s+/, '') : 'Untitled';
+      var postLink = postTemplate.find('.post-title a').first();
+      postLink.attr('href', '#posts/' + post['id']);
+      postLink.html(title);
       postTemplate.find('.post-content').first().html(markdown);
-      $('#posts').append(postTemplate);
+      $('#posts').append(postTemplate)
+      postTemplate.hide().delay(i * 200).fadeIn(500);
     }
   }
 
