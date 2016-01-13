@@ -40,8 +40,10 @@ $(function() {
       // postTemplate.find('.post-title a')
       // TODO: Render author:
       postTemplate.find('.post-meta').first().html(post['created']);
-      // TODO: Render markdown here:
-      postTemplate.find('.post-content').first().html(post['content']);
+
+      var content = post['content'];
+      var markdown = new showdown.Converter().makeHtml(content);
+      postTemplate.find('.post-content').first().html(markdown);
       $('#posts').append(postTemplate);
     }
   }
