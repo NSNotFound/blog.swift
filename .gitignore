@@ -1,5 +1,5 @@
 
-# Created by https://www.gitignore.io/api/swift,osx
+# Created by https://www.gitignore.io/api/swift,osx,vagrant
 
 ### Swift ###
 # Xcode
@@ -88,4 +88,8 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+
+### Vagrant ###
+.vagrant/
 
