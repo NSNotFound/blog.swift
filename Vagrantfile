@@ -12,6 +12,7 @@ Vagrant.configure(2) do |config|
     vb.cpus = 4
   end
 
+  # See https://github.com/swiftdocker/docker-swift/blob/master/Dockerfile
   config.vm.provision "shell", inline: <<-SHELL
     sudo apt-get update
     sudo locale-gen en_US.UTF-8
