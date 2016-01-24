@@ -14,7 +14,8 @@ CREATE TABLE IF NOT EXISTS users {
   email varchar(32) NOT NULL,
   username varchar(20) NOT NULL,
   password varchar(32) NOT NULL,
-  reset_token varchar(32)
+  reset_token varchar(32),
+  access_token varchar(32)
 }
 
 GRANT ALL ON users to postgres;

@@ -12,4 +12,6 @@ let APIv1 = Router("/v1") { r in
   r.get("/posts/:id", postController.show)
   r.put("/posts/:id", parseJSON >>> postController.update)
   r.delete("/posts/:id", postController.destroy)
+
+  r.post("/users/login", parseJSON >>> userController.login)
 }
